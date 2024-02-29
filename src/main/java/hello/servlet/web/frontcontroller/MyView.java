@@ -24,8 +24,10 @@ public class MyView {
         modelToRequestAttribute(model, request);
         RequestDispatcher dispatcher = request.getRequestDispatcher(viewPath);
         dispatcher.forward(request, response);
+        // 리퀘스트 디스패쳐로 jsp로 이동을 해줌 jsp가 렌더링이 됨
     }
 
+    //Http serverless request setAttribute에 다 넣는다. jsp는 필요함 값을 꺼내기 위해서
     private static void modelToRequestAttribute(Map<String, Object> model, HttpServletRequest request) {
         model.forEach((key, value) -> request.setAttribute(key, value));
     }
